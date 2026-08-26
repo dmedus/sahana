@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contactanos | SAHANA SRL - Aserradero</title>
+<meta name="description" content="Solicitá presupuesto sin compromiso. Teléfono, WhatsApp, email y formulario de contacto. Respuesta en menos de 24 horas.">
+<link rel="canonical" href="https://sahana.com.ar/contacto/">
+<meta name="theme-color" content="#5C6E45">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contactanos | SAHANA SRL">
+<meta property="og:description" content="Solicitá presupuesto sin compromiso. Respuesta en menos de 24 horas.">
+<meta property="og:url" content="https://sahana.com.ar/contacto/">
+<meta property="og:image" content="https://sahana.com.ar/img/logo-icon-96.png">
+
+<link rel="icon" href="/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand">
+      <img src="/img/logo-icon-96.png" alt="SAHANA SRL">
+      <span class="brand-name">Sahana<small>Foresto Industria</small></span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="/">Inicio</a>
+      <a href="/productos/">Productos</a>
+      <a href="/sobre-nosotros/">Sobre Nosotros</a>
+      <a href="/contacto/" class="active">Contacto</a>
+      <a href="/contacto/" class="btn btn-primary">Solicitar Presupuesto</a>
+    </nav>
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+5493442405400">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +54 9 3442 40-5400
+      </a>
+      <a href="/contacto/" class="btn btn-primary">Solicitar Presupuesto</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="/">Inicio</a><span>/</span>Contacto</div>
+      <span class="eyebrow">Sin compromiso</span>
+      <h1>Contactanos</h1>
+      <p>Presupuestos sin compromiso. Respuesta en 24 horas.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="product-layout">
+
+        <div>
+          <h2 class="mt-0">Solicitá tu Presupuesto</h2>
+          <div class="form-status" role="status"></div>
+
+          <!--
+            IMPORTANTE: reemplazar "TU_ID_DE_FORM" por el ID real de tu formulario de Formspree
+            (creá una cuenta gratis en https://formspree.io, generá un formulario y pegá su endpoint aquí).
+          -->
+          <form data-ajax-form action="https://formspree.io/f/TU_ID_DE_FORM" method="POST" id="form-contacto">
+            <input type="text" name="_gotcha" style="display:none">
+            <input type="hidden" name="_subject" value="Nueva consulta desde sahana.com.ar">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nombre">Nombre completo <span class="req">*</span></label>
+                <input class="form-control" type="text" id="nombre" name="nombre" data-validate="required|min3" required>
+                <span class="field-error">Ingresá tu nombre completo.</span>
+              </div>
+              <div class="form-group">
+                <label for="empresa">Empresa</label>
+                <input class="form-control" type="text" id="empresa" name="empresa">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email <span class="req">*</span></label>
+                <input class="form-control" type="email" id="email" name="email" data-validate="required|email" required>
+                <span class="field-error">Ingresá un email válido.</span>
+              </div>
+              <div class="form-group">
+                <label for="telefono">Teléfono <span class="req">*</span></label>
+                <input class="form-control" type="tel" id="telefono" name="telefono" placeholder="+54 9 11 1234-5678" data-validate="required|phone" required>
+                <span class="field-error">Ingresá un teléfono válido.</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="producto">Producto de interés <span class="req">*</span></label>
+              <select class="form-control" id="producto" name="producto" data-validate="required" required>
+                <option value="">Seleccioná una opción</option>
+                <option value="tablas-eucalipto">Tablas de Eucalipto</option>
+                <option value="tableros-alistonados">Tableros Alistonados</option>
+                <option value="revestimientos">Revestimientos</option>
+                <option value="machimbre">Machimbre</option>
+                <option value="decks">Decks</option>
+                <option value="tirantes">Tirantes</option>
+                <option value="escalones">Escalones</option>
+                <option value="subproductos">Subproductos (chip, aserrín)</option>
+                <option value="otro">Otro (especificar abajo)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="descripcion">Descripción <span class="req">*</span></label>
+              <textarea class="form-control" id="descripcion" name="descripcion" rows="4" placeholder="Escribí qué necesitás. Ej: 5000 pies de tabla verde 25x75..." data-validate="required|min10" required></textarea>
+              <span class="field-error">Contanos un poco más sobre tu pedido (mínimo 10 caracteres).</span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="medidas">Medidas específicas</label>
+                <input class="form-control" type="text" id="medidas" name="medidas" placeholder="Ej: 25x75mm">
+              </div>
+              <div class="form-group">
+                <label for="cantidad">Cantidad</label>
+                <input class="form-control" type="text" id="cantidad" name="cantidad" placeholder="Ej: 5000 pies">
+              </div>
+            </div>
+
+            <div class="checkbox-row">
+              <input type="checkbox" id="acepto" name="acepto_terminos" required>
+              <label for="acepto">He leído y acepto que SAHANA SRL me contacte para responder esta consulta. <span class="req">*</span></label>
+            </div>
+            <div class="checkbox-row">
+              <input type="checkbox" id="newsletter" name="recibir_info">
+              <label for="newsletter">Deseo recibir información de productos y novedades.</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg btn-block" data-label="Enviar Presupuesto" data-track="contact_form_submit">ENVIAR PRESUPUESTO</button>
+            <p class="form-note">Alguien del equipo te contactará en máximo 24 horas.</p>
+          </form>
+        </div>
+
+        <aside>
+          <div class="quote-box" style="position:static;">
+            <h3>Contacto Directo</h3>
+            <div class="quote-contact" style="border-top:none; padding-top:0;">
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+5493442405400">Comercial: +54 9 3442 40-5400</a></div>
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg><a href="mailto:contacto@sahana.com.ar">contacto@sahana.com.ar</a></div>
+            </div>
+            <a href="https://wa.me/5493442405400?text=Hola%20SAHANA%2C%20quisiera%20consultar%20sobre..." target="_blank" rel="noopener" class="btn btn-whatsapp btn-block" style="margin-top:8px;" data-track="contact_whatsapp_click">Escribir por WhatsApp</a>
+
+            <div class="quote-contact">
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Lun-Vie: 7:00-12:00 y 14:00-18:00</div>
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Sáb-Dom: Cerrado</div>
+            </div>
+
+            <div class="quote-contact">
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ruta 14 Km 222, Pedernal, Entre Ríos</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Cómo llegar</span>
+        <h2>Ubicación</h2>
+        <p>Ruta Nacional 14, Pedernal, Entre Ríos — a unos 600km de AMBA.</p>
+      </div>
+      <div class="map-frame">
+        <iframe
+          src="https://www.google.com/maps?q=Ruta+14+Km+222,+Pedernal,+Entre+R%C3%ADos,+Argentina&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación de SAHANA SRL en el mapa">
+        </iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="/img/logo-icon-96.png" alt="SAHANA SRL">
+          <span class="footer-brand-text">Sahana<small>Desde 2000</small></span>
+        </div>
+        <p style="font-size:14px; max-width:280px;">Aserradero mayorista de eucalipto en Entre Ríos. Calidad, responsabilidad y buen servicio para tu negocio.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v2a6 6 0 0 1 2-2z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="/productos/tablas-eucalipto/">Tablas de Eucalipto</a></li>
+          <li><a href="/productos/tableros-alistonados/">Tableros Alistonados</a></li>
+          <li><a href="/productos/revestimientos/">Revestimientos</a></li>
+          <li><a href="/productos/machimbre/">Machimbre</a></li>
+          <li><a href="/productos/">Ver todos →</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="/sobre-nosotros/">Sobre Nosotros</a></li>
+          <li><a href="/contacto/">Contacto</a></li>
+          <li><a href="https://www.google.com/search?q=SAHANA+SRL" target="_blank" rel="noopener">Reseñas en Google</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <p>Ruta 14 Km 222, Pedernal, Entre Ríos</p>
+        <p><a href="tel:+5493442405400">+54 9 3442 40-5400</a></p>
+        <p><a href="mailto:contacto@sahana.com.ar">contacto@sahana.com.ar</a></p>
+        <p>Lun-Vie 7:00-12:00 y 14:00-18:00</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> SAHANA SRL. Todos los derechos reservados.</span>
+      <span><a href="/contacto/">Desarrollado por [Tu nombre / estudio]</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/5493442405400?text=Hola%20SAHANA%2C%20quisiera%20consultar%20sobre..." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16.001 3C9.383 3 4 8.383 4 15.001c0 2.386.703 4.61 1.912 6.475L4 29l7.71-1.874a11.9 11.9 0 0 0 4.291.793h.005c6.618 0 12-5.383 12-12S22.62 3 16.001 3zm0 21.6a9.55 9.55 0 0 1-4.87-1.335l-.349-.207-4.578 1.113 1.126-4.523-.228-.362A9.55 9.55 0 0 1 5.4 15C5.4 9.16 10.16 4.4 16 4.4S26.6 9.16 26.6 15 21.84 24.6 16.001 24.6zm5.316-7.14c-.29-.145-1.72-.85-1.987-.947-.267-.097-.461-.145-.655.145-.194.29-.752.947-.922 1.14-.17.194-.34.218-.63.073-.29-.146-1.223-.451-2.33-1.437-.861-.768-1.442-1.716-1.612-2.006-.17-.29-.018-.446.127-.59.13-.13.29-.34.436-.51.145-.17.194-.29.29-.484.097-.194.049-.363-.024-.508-.073-.145-.655-1.578-.898-2.161-.237-.568-.478-.491-.655-.5-.17-.008-.363-.01-.557-.01-.194 0-.508.073-.775.363-.267.29-1.017.994-1.017 2.426s1.041 2.815 1.187 3.01c.145.194 2.05 3.13 4.967 4.389.694.3 1.235.48 1.657.614.696.221 1.33.19 1.83.115.558-.083 1.72-.703 1.963-1.382.243-.678.243-1.26.17-1.382-.073-.121-.267-.194-.557-.34z"/></svg>
+</a>
+
+<div class="cookie-banner">
+  <p>Usamos cookies para mejorar tu experiencia en el sitio. Al continuar navegando, aceptás su uso.</p>
+  <button class="btn btn-secondary" data-cookie-accept>Entendido</button>
+</div>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="/js/main.js"></script>
+</body>
+</html>
