@@ -118,6 +118,12 @@
       field.classList.toggle("is-invalid", !ok);
       if (!ok) valid = false;
     });
+    form.querySelectorAll("[data-validate-radio]").forEach(function (group) {
+      var name = group.getAttribute("data-validate-radio");
+      var ok = !!form.querySelector('input[name="' + name + '"]:checked');
+      group.classList.toggle("is-invalid", !ok);
+      if (!ok) valid = false;
+    });
     return valid;
   }
 

@@ -340,6 +340,9 @@ h3 { font-size: 24px; }
 }
 @media (max-width: 960px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 620px) { .product-grid { grid-template-columns: 1fr; } }
+.catalog-group + .catalog-group { margin-top: 64px; }
+.catalog-group .section-head { margin-bottom: 28px; }
+@media (min-width: 1100px) { .product-grid--4 { grid-template-columns: repeat(4, 1fr); } }
 
 .product-card {
   background: #fff;
@@ -397,6 +400,7 @@ h3 { font-size: 24px; }
   line-height: 1;
   margin-bottom: 10px;
 }
+.stat-number--text { font-size: 32px; line-height: 1.5; }
 .stat-label { color: #C9CFBB; font-size: 15px; }
 
 /* ---------- CTA band ---------- */
@@ -501,6 +505,10 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 .field-error { color: var(--color-danger); font-size: 13px; margin-top: 6px; display: none; }
 .form-control.is-invalid { border-color: var(--color-danger); }
 .form-control.is-invalid ~ .field-error { display: block; }
+.form-label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 7px; }
+.radio-row { display: flex; flex-wrap: wrap; gap: 12px 28px; }
+.radio-row label { display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 15px; margin: 0; cursor: pointer; }
+.form-group.is-invalid .field-error { display: block; }
 .form-status { display: none; padding: 16px 18px; border-radius: var(--radius-sm); margin-bottom: 20px; font-size: 14px; font-weight: 600; }
 .form-status.is-success { display: block; background: #E9F3E3; color: #3A6B2C; }
 .form-status.is-error { display: block; background: #F7E7E5; color: var(--color-danger); }
