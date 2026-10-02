@@ -68,20 +68,15 @@
           <h2 class="mt-0">Solicitá tu Presupuesto</h2>
           <p class="text-light">Cada pedido se cotiza según medidas, volumen y terminación. Contanos qué necesitás y te pasamos el presupuesto en 24 horas.</p>
           <div class="form-status" role="status"></div>
-
-          <!--
-            IMPORTANTE: reemplazar "TU_ID_DE_FORM" por el ID real de tu formulario de Formspree
-            (creá una cuenta gratis en https://formspree.io, generá un formulario y pegá su endpoint aquí).
-          -->
-          <form data-ajax-form action="https://formspree.io/f/TU_ID_DE_FORM" method="POST" id="form-contacto">
+          <form data-ajax-form data-whatsapp="5493442588388" data-whatsapp-intro="Hola SAHANA, quisiera pedir un presupuesto." id="form-contacto">
             <input type="text" name="_gotcha" style="display:none">
             <input type="hidden" name="_subject" value="Nueva consulta desde sahana.com.ar">
 
             <div class="form-group" data-validate-radio="tipo_cliente">
               <span class="form-label">¿Quién consulta? <span class="req">*</span></span>
               <div class="radio-row">
-                <label><input type="radio" name="tipo_cliente" value="Particular" required> Soy particular</label>
-                <label><input type="radio" name="tipo_cliente" value="Empresa"> Soy empresa</label>
+                <label><input type="radio" name="tipo_cliente" value="Particular" data-label="Tipo de cliente" required> Soy particular</label>
+                <label><input type="radio" name="tipo_cliente" value="Empresa" data-label="Tipo de cliente"> Soy empresa</label>
               </div>
               <span class="field-error">Indicá si sos particular o empresa.</span>
             </div>
@@ -125,7 +120,6 @@
                 <option value="piezas-a-medida">Piezas a Medida</option>
                 <option value="escalones">Escalones</option>
                 <option value="subproductos">Subproductos (chip, aserrín)</option>
-                <option value="servicios-forestales">Servicios Forestales</option>
                 <option value="otro">Otro (especificar abajo)</option>
               </select>
             </div>
@@ -156,8 +150,8 @@
               <label for="newsletter">Deseo recibir información de productos y novedades.</label>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-lg btn-block" data-label="Enviar Presupuesto" data-track="contact_form_submit">ENVIAR PRESUPUESTO</button>
-            <p class="form-note">Alguien del equipo te contactará en máximo 24 horas.</p>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" data-label="Enviar por WhatsApp" data-track="contact_form_submit">ENVIAR POR WHATSAPP</button>
+            <p class="form-note">Se abre WhatsApp con tu consulta lista para enviar. Te respondemos en máximo 24 horas.</p>
           </form>
         </div>
 
@@ -230,7 +224,6 @@
           <li><a href="/productos/piezas-a-medida/">Piezas a Medida</a></li>
           <li><a href="/productos/escalones/">Escalones</a></li>
           <li><a href="/productos/subproductos/">Subproductos</a></li>
-          <li><a href="/productos/servicios-forestales/">Servicios Forestales</a></li>
           <li><a href="/productos/">Ver todos →</a></li>
         </ul>
       </div>

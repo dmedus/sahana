@@ -88,7 +88,7 @@
     });
   }
 
-  /* ---------- Validación + envío de formularios (Formspree) ---------- */
+  /* ---------- Validación + envío de formularios (por WhatsApp) ---------- */
   var PHONE_AR_RE = /^\+?\d[\d\s()-]{7,}$/;
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -97,7 +97,7 @@
       form.addEventListener("submit", function (e) {
         e.preventDefault();
         if (!validateForm(form)) return;
-        submitForm(form);
+        sendWhatsApp(form);
       });
     });
   }
@@ -127,40 +127,37 @@
     return valid;
   }
 
-  function submitForm(form) {
+  // Arma el mensaje con los campos completados y abre WhatsApp con el texto listo para enviar
+  function sendWhatsApp(form) {
     var statusBox = form.parentElement.querySelector(".form-status");
-    var submitBtn = form.querySelector("[type=submit]");
-    var endpoint = form.getAttribute("action");
-    var isPlaceholder = !endpoint || endpoint.indexOf("TU_ID_DE_FORM") !== -1;
+    var honeypot = form.querySelector('[name="_gotcha"]');
+    if (honeypot && honeypot.value) return;
 
-    if (isPlaceholder) {
-      showStatus(statusBox, "error", "Formulario en configuración: falta conectar el ID de Formspree (ver js/main.js).");
-      return;
+    var lines = [form.getAttribute("data-whatsapp-intro") || "Hola SAHANA, quisiera hacer una consulta."];
+    Array.prototype.forEach.call(form.elements, function (el) {
+      if (!el.name || el.name.charAt(0) === "_" || el.type === "hidden" || el.type === "submit" || el.type === "checkbox") return;
+      if (el.type === "radio" && !el.checked) return;
+      var value = el.tagName === "SELECT" ? (el.value ? el.options[el.selectedIndex].text : "") : el.value.trim();
+      if (!value) return;
+      lines.push(fieldLabel(form, el) + ": " + value);
+    });
+
+    var url = "https://wa.me/" + form.getAttribute("data-whatsapp") + "?text=" + encodeURIComponent(lines.join("\n"));
+    var win = window.open(url, "_blank");
+    if (win) win.opener = null;
+    else window.location.href = url;
+
+    showStatus(statusBox, "success", "Te abrimos WhatsApp con tu consulta lista. Solo tenés que tocar Enviar.");
+    trackEvent("form_submit_whatsapp", { form_id: form.id || "contacto" });
+  }
+
+  function fieldLabel(form, el) {
+    var text = el.getAttribute("data-label");
+    if (!text && el.id) {
+      var label = form.querySelector('label[for="' + el.id + '"]');
+      if (label) text = label.textContent;
     }
-
-    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Enviando..."; }
-
-    fetch(endpoint, {
-      method: "POST",
-      body: new FormData(form),
-      headers: { Accept: "application/json" }
-    })
-      .then(function (response) {
-        if (response.ok) {
-          form.reset();
-          showStatus(statusBox, "success", "¡Gracias! Recibimos tu consulta. Te contactaremos en menos de 24 horas.");
-          trackEvent("form_submit_success", { form_id: form.id || "contacto" });
-        } else {
-          showStatus(statusBox, "error", "No pudimos enviar tu consulta. Probá de nuevo o escribinos por WhatsApp.");
-          trackEvent("form_submit_error", { form_id: form.id || "contacto" });
-        }
-      })
-      .catch(function () {
-        showStatus(statusBox, "error", "No pudimos enviar tu consulta. Probá de nuevo o escribinos por WhatsApp.");
-      })
-      .finally(function () {
-        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.getAttribute("data-label") || "Enviar"; }
-      });
+    return (text || el.name).replace("*", "").trim();
   }
 
   function showStatus(box, type, message) {
