@@ -379,6 +379,73 @@ h3 { font-size: 24px; }
 .product-card-link svg { width: 16px; height: 16px; transition: transform 0.15s ease; }
 .product-card:hover .product-card-link svg { transform: translateX(4px); }
 
+/* ---------- Category tiles (productos) ---------- */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+@media (max-width: 720px) { .category-grid { grid-template-columns: 1fr; } }
+
+.category-tile {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 340px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  color: #fff;
+  background: var(--color-bg-dark);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.category-tile:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+.category-tile img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.category-tile:hover img { transform: scale(1.05); }
+.category-tile::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(38,44,29,0.05) 20%, rgba(38,44,29,0.88) 100%);
+  z-index: 1;
+}
+.category-tile-body { position: relative; z-index: 2; padding: 32px; }
+.category-tile .eyebrow { color: #E7DFC6; margin-bottom: 6px; }
+.category-tile h2 {
+  color: #fff;
+  font-size: 32px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.category-tile p { color: #E4E9D8; font-size: 15px; margin-bottom: 14px; max-width: 420px; }
+.category-tile-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-weight: 700; font-size: 14px; color: #fff;
+}
+.category-tile-link svg { width: 16px; height: 16px; transition: transform 0.15s ease; }
+.category-tile:hover .category-tile-link svg { transform: translateX(4px); }
+@media (max-width: 720px) {
+  .category-tile { min-height: 260px; }
+  .category-tile-body { padding: 24px; }
+  .category-tile h2 { font-size: 26px; }
+}
+
+.category-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.category-nav a {
+  padding: 8px 16px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 20px;
+  font-size: 13px; font-weight: 600;
+  color: #DDE2CE;
+}
+.category-nav a:hover { background: rgba(255,255,255,0.12); color: #fff; }
+.category-nav a.active { background: var(--color-accent); border-color: var(--color-accent); color: #fff; }
+
 /* ---------- Stats ---------- */
 .stats-band {
   background: var(--color-bg-dark);
