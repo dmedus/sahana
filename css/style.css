@@ -193,6 +193,9 @@ h3 { font-size: 24px; }
 .header-actions { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
 .header-phone { display: flex; align-items: center; gap: 6px; font-weight: 600; font-size: 14px; }
 .header-phone svg { width: 18px; height: 18px; color: var(--color-primary); }
+.header-phones { display: flex; flex-direction: column; gap: 2px; }
+.header-phones .header-phone { font-size: 13px; line-height: 1.3; }
+.header-phones .header-phone svg { width: 15px; height: 15px; }
 
 .nav-toggle {
   display: none;
@@ -208,7 +211,7 @@ h3 { font-size: 24px; }
 .nav-toggle svg { width: 26px; height: 26px; }
 
 @media (max-width: 900px) {
-  .header-phone { display: none; }
+  .header-phone, .header-phones { display: none; }
 }
 
 @media (max-width: 768px) {
