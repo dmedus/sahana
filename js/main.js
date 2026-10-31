@@ -17,7 +17,57 @@
     initForms();
     initClickTracking();
     initContactPrefill();
+    initHeroCarousel();
   });
+
+  /* ---------- Carrusel de portada ---------- */
+  function initHeroCarousel() {
+    var hero = document.querySelector(".hero");
+    if (!hero) return;
+    var slides = hero.querySelectorAll(".hero-bg");
+    var dots = hero.querySelectorAll(".hero-dot");
+    if (slides.length < 2) return;
+    var current = 0;
+    var timer = null;
+    var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function show(i) {
+      slides[current].classList.remove("is-active");
+      if (dots[current]) dots[current].classList.remove("is-active");
+      current = (i + slides.length) % slides.length;
+      slides[current].classList.add("is-active");
+      if (dots[current]) dots[current].classList.add("is-active");
+    }
+    function start() {
+      if (reduced) return;
+      stop();
+      timer = setInterval(function () { show(current + 1); }, 5000);
+    }
+    function stop() { if (timer) clearInterval(timer); timer = null; }
+
+    var prev = hero.querySelector(".hero-prev");
+    var next = hero.querySelector(".hero-next");
+    if (prev) prev.addEventListener("click", function () { show(current - 1); start(); });
+    if (next) next.addEventListener("click", function () { show(current + 1); start(); });
+    dots.forEach(function (dot, i) {
+      dot.addEventListener("click", function () { show(i); start(); });
+    });
+
+    // Swipe en celulares
+    var x0 = null;
+    hero.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    hero.addEventListener("touchend", function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 50) { show(current + (dx < 0 ? 1 : -1)); start(); }
+      x0 = null;
+    });
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) stop(); else start();
+    });
+    start();
+  }
 
   /* ---------- Precarga de producto de interés (?producto=slug) ---------- */
   function initContactPrefill() {

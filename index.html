@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css?v=20261012">
+<link rel="stylesheet" href="/css/style.css?v=20261031">
 
 <script type="application/ld+json">
 {
@@ -114,7 +114,26 @@
 
   <!-- HERO -->
   <section class="hero">
-    <img class="hero-bg" src="/img/hero-planta.jpg" width="1920" height="900" alt="Planta de aserrado SAHANA SRL" loading="eager">
+    <div class="hero-slides" aria-hidden="true">
+      <img class="hero-bg is-active" src="/img/portada/1.jpg" width="1600" height="900" alt="SAHANA SRL - foto 1" fetchpriority="high">
+      <img class="hero-bg" src="/img/portada/2.jpg" width="1600" height="900" alt="SAHANA SRL - foto 2" loading="lazy">
+      <img class="hero-bg" src="/img/portada/3.jpg" width="1600" height="900" alt="SAHANA SRL - foto 3" loading="lazy">
+      <img class="hero-bg" src="/img/portada/4.jpg" width="1600" height="900" alt="SAHANA SRL - foto 4" loading="lazy">
+      <img class="hero-bg" src="/img/portada/5.jpg" width="1600" height="900" alt="SAHANA SRL - foto 5" loading="lazy">
+      <img class="hero-bg" src="/img/portada/6.jpg" width="1600" height="900" alt="SAHANA SRL - foto 6" loading="lazy">
+      <img class="hero-bg" src="/img/portada/7.jpg" width="1600" height="900" alt="SAHANA SRL - foto 7" loading="lazy">
+    </div>
+    <button type="button" class="hero-arrow hero-prev" aria-label="Foto anterior">&#8249;</button>
+    <button type="button" class="hero-arrow hero-next" aria-label="Foto siguiente">&#8250;</button>
+    <div class="hero-dots">
+      <button type="button" class="hero-dot is-active" aria-label="Ver foto 1"></button>
+      <button type="button" class="hero-dot" aria-label="Ver foto 2"></button>
+      <button type="button" class="hero-dot" aria-label="Ver foto 3"></button>
+      <button type="button" class="hero-dot" aria-label="Ver foto 4"></button>
+      <button type="button" class="hero-dot" aria-label="Ver foto 5"></button>
+      <button type="button" class="hero-dot" aria-label="Ver foto 6"></button>
+      <button type="button" class="hero-dot" aria-label="Ver foto 7"></button>
+    </div>
     <div class="container">
       <div class="hero-content">
         <span class="eyebrow">Aserradero desde 2000 · Entre Ríos, Argentina</span>
@@ -260,6 +279,43 @@
     </div>
   </section>
 
+  <!-- PRODUCTOS TERMINADOS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">En obra</span>
+        <h2>Nuestros productos ya terminados</h2>
+        <p>Cielorrasos, revestimientos y muebles hechos con nuestra madera de eucalipto.</p>
+      </div>
+      <div class="finished-grid">
+        <a href="/img/productos/terminados/1.jpg" target="_blank" rel="noopener" class="finished-item">
+          <img src="/img/productos/terminados/1-thumb.jpg" width="600" height="600" alt="Cielorraso de machimbre de eucalipto con vigas a la vista" loading="lazy">
+        </a>
+        <a href="/img/productos/terminados/2.jpg" target="_blank" rel="noopener" class="finished-item">
+          <img src="/img/productos/terminados/2-thumb.jpg" width="600" height="600" alt="Cielorraso de machimbre de eucalipto" loading="lazy">
+        </a>
+        <a href="/img/productos/terminados/3.jpg" target="_blank" rel="noopener" class="finished-item">
+          <img src="/img/productos/terminados/3-thumb.jpg" width="600" height="600" alt="Pared revestida en eucalipto" loading="lazy">
+        </a>
+        <a href="/img/productos/terminados/4.jpg" target="_blank" rel="noopener" class="finished-item">
+          <img src="/img/productos/terminados/4-thumb.jpg" width="600" height="600" alt="Cielorraso de eucalipto en cocina con vigas" loading="lazy">
+        </a>
+        <a href="/img/productos/terminados/5.jpg" target="_blank" rel="noopener" class="finished-item">
+          <img src="/img/productos/terminados/5-thumb.jpg" width="600" height="600" alt="Techo de machimbre y vigas de eucalipto" loading="lazy">
+        </a>
+        <a href="/img/productos/terminados/6.jpg" target="_blank" rel="noopener" class="finished-item">
+          <img src="/img/productos/terminados/6-thumb.jpg" width="600" height="600" alt="Revestimiento de eucalipto con distintos tonos" loading="lazy">
+        </a>
+        <a href="/img/productos/terminados/7.jpg" target="_blank" rel="noopener" class="finished-item">
+          <img src="/img/productos/terminados/7-thumb.jpg" width="600" height="600" alt="Mesa de tablero alistonado de eucalipto" loading="lazy">
+        </a>
+      </div>
+      <div class="text-center" style="margin-top:40px;">
+        <a href="/productos/remanufacturas/" class="btn btn-outline">Ver remanufacturas →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- LOGROS -->
   <section class="stats-band section--sm">
     <div class="container">
@@ -367,6 +423,6 @@
 </div>
 
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-<script src="/js/main.js"></script>
+<script src="/js/main.js?v=20261031"></script>
 </body>
 </html>
