@@ -251,6 +251,37 @@ h3 { font-size: 24px; }
 }
 .whatsapp-float:hover { transform: scale(1.08); }
 .whatsapp-float svg { width: 30px; height: 30px; fill: #fff; }
+.whatsapp-menu {
+  position: fixed;
+  right: 20px;
+  bottom: 92px;
+  z-index: 600;
+  min-width: 240px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 8px;
+  display: none;
+}
+.whatsapp-menu.is-open { display: block; }
+.whatsapp-menu-title {
+  margin: 4px 10px 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-light);
+}
+.whatsapp-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--color-text);
+}
+.whatsapp-menu a:hover, .whatsapp-menu a:focus-visible { background: var(--color-bg-alt); }
+.whatsapp-menu svg { width: 22px; height: 22px; fill: var(--color-whatsapp); flex-shrink: 0; }
 
 /* ---------- Hero (home) ---------- */
 .hero {

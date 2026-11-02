@@ -18,7 +18,64 @@
     initClickTracking();
     initContactPrefill();
     initHeroCarousel();
+    initWhatsappFloat();
   });
+
+  /* ---------- Botón flotante de WhatsApp: elegir número ---------- */
+  function initWhatsappFloat() {
+    var btn = document.querySelector(".whatsapp-float");
+    if (!btn) return;
+    var numbers = [
+      { phone: "5493447434433", label: "+54 9 3447 43-4433" },
+      { phone: "5493442588388", label: "+54 9 3442 58-8388" }
+    ];
+    var query = btn.href.indexOf("?") > -1 ? btn.href.slice(btn.href.indexOf("?")) : "";
+    var icon = btn.querySelector("svg") ? btn.querySelector("svg").outerHTML : "";
+
+    var menu = document.createElement("div");
+    menu.className = "whatsapp-menu";
+    menu.id = "whatsapp-menu";
+    var title = document.createElement("p");
+    title.className = "whatsapp-menu-title";
+    title.textContent = "Escribinos por WhatsApp";
+    menu.appendChild(title);
+    numbers.forEach(function (n, i) {
+      var a = document.createElement("a");
+      a.href = "https://wa.me/" + n.phone + query;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.innerHTML = icon + "<span></span>";
+      a.querySelector("span").textContent = n.label;
+      a.addEventListener("click", function () {
+        trackEvent("whatsapp_float_click", { numero: i + 1 });
+        close();
+      });
+      menu.appendChild(a);
+    });
+    btn.parentNode.insertBefore(menu, btn.nextSibling);
+
+    btn.setAttribute("aria-haspopup", "true");
+    btn.setAttribute("aria-expanded", "false");
+    btn.setAttribute("aria-controls", "whatsapp-menu");
+    btn.setAttribute("aria-label", "Elegir número de WhatsApp");
+
+    function close() {
+      menu.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+    }
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      var open = menu.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open) menu.querySelector("a").focus();
+    });
+    document.addEventListener("click", function (e) {
+      if (!menu.contains(e.target) && !btn.contains(e.target)) close();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.classList.contains("is-open")) { close(); btn.focus(); }
+    });
+  }
 
   /* ---------- Carrusel de portada ---------- */
   function initHeroCarousel() {
